@@ -1,0 +1,72 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: prechart.service
+services:
+#  - name: svc-employee
+#    project: Prechart.Service.Employee/Prechart.Service.Employee.csproj
+#    bindings:
+#      - port: 5000
+#        protocol: http
+#    buildProperties:
+#      - name: Configuration
+#        value: Release
+  - name: svc-timesheet
+    project: Prechart.Service.TimeSheet/Prechart.Service.TimeSheet.csproj
+    bindings:
+      - port: 5100
+        protocol: http
+    buildProperties:
+      - name: Configuration
+        value: Release
+  - name: svc-documents-upload-csv
+    project: Prechart.Service.Documents/Prechart.Service.Documents.Upload.Csv.csproj
+    bindings:
+      - port: 5200
+        protocol: http
+    buildProperties:
+      - name: Configuration
+        value: Release
+#  - name: svc-email
+#    project: Prechart.Service.Email/Prechart.Service.Email.csproj
+#    bindings:
+#      - port: 5300
+#        protocol: http
+#    buildProperties:
+#      - name: Configuration
+#        value: Release
+#  - name: svc-auditlog
+#    project: Prechart.Service.AuditLog/Prechart.Service.AuditLog.csproj
+#    bindings:
+#      - port: 5400
+#        protocol: http
+#    buildProperties:
+#      - name: Configuration
+#        value: Release
+  - name: svc-belastingen
+    project: Prechart.Service.Belastingen/Prechart.Service.Belastingen.csproj
+    bindings:
+      - port: 5500
+        protocol: http
+    buildProperties:
+      - name: Configuration
+        value: Release
+  - name: svc-users
+    project: Prechart.Service.Users/Prechart.Service.Users.csproj
+    bindings:
+      - port: 5600
+        protocol: http
+    buildProperties:
+      - name: Configuration
+        value: Release
+#  - name: svc-gateway
+#    project: Prechart.Service.Gateway/Prechart.Service.Gateway.csproj
+#    bindings:
+#      - port: 8080
+#        protocol: http
+#    buildProperties:
+#      - name: Configuration
+#        value: Release

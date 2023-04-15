@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://prechart.com:5600",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
