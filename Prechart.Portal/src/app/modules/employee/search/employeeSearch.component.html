@@ -1,0 +1,228 @@
+<div class="div-center p-2">
+  <h3>Onboarding Werknemers</h3>
+
+  <p-dropdown [(ngModel)]="ddlWerkgever" *ngIf="isShowDdlWerkgever" [options]="werkgeverList" optionLabel="label" placeholder="Selecteer een werkgever" (onChange)="werkgeverOnChange($event)"></p-dropdown>
+  <h4 *ngIf="!isShowDdlWerkgever"><a [routerLink]="['/werkgever/collective']" [state]="{ taxno: werkgeverTaxNo }">{{werkgeverTaxNo}}</a></h4>
+
+  <div *ngIf="progressVisible" class="mt-2">
+    <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+  </div>
+
+  <div *ngIf="employeesList" class="mt-3">
+    <p-table #employeesTable [columns]="cols" [value]="employeesList" responsiveLayout="scroll" [paginator]="true" [rows]="30" dataKey="sofinummer"
+             rowExpandMode="single" [showCurrentPageReport]="true" currentPageReportTemplate="Toont {first} tot {last} van {totalRecords} inzendingen"
+             (onRowExpand)="onRowExpand($event)" [globalFilterFields]="['significantAchternaam']">
+      <ng-template pTemplate="caption">
+        <div class="flex">
+          <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(employeesTable)"></button>
+          <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="applyfilterGlobal($event)" placeholder="Zoek achternaam" />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th style="width: 3rem"></th>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th style="width: 3rem"></th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
+        <tr>
+          <td>
+            <button type="button" pButton pRipple [pRowToggler]="rowData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+          </td>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+          <td>
+            <button pButton pRipple type="button" label="Detail" class="p-button-raised p-button-info" (click)="viewSidebarDetails(rowData)"></button>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="rowexpansion" let-rowData>
+        <tr>
+          <td></td>
+          <td colspan="6">
+            <psp-employee-tax-details [model]="rowData.taxDetails"></psp-employee-tax-details>
+            <p-accordion>
+              <p-accordionTab header="Cumulative">
+                <div class="row text-left">
+                  <div class="col">
+                    <!--start left column-->
+                    <div class="row">
+                      <div class="col-6"><strong>LnLbPh</strong><br /><small>Loon voor de Loonbelasting en Premieheffingen Volksverzekeringen</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.lnLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>LnSv</strong><br /><small>Loon voor de Sociale Verzekeringen</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.lnSv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAofAnwLg</strong><br /><small>Aanwas in het cumulatieve premieloon Aof laag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAofAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAofAnwHg</strong><br /><small>Aanwas in het cumulatieve premieloon Aof hoog</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAofAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAofAnwUit</strong><br /><small>Aanwas in het cumulatieve premieloon Aof uitkering</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAofAnwUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAwfAnwLg</strong><br /><small>Aanwas in het cumulatieve premieloon AWf laag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAwfAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAwfAnwHg</strong><br /><small>Aanwas in het cumulatieve premieloon AWf hoog</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAwfAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrlnAwfAnwHz</strong><br /><small>Aanwas in het cumulatieve premieloon AWf herzien</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prlnAwfAnwHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrLnUfo</strong><br /><small>Aanwas in het cumulatieve premieloon Ufo</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prLnUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>LnTabBb</strong><br /><small>Loon belast volgens tabel bijzondere beloningen</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.lnTabBb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>VakBsl</strong><br /><small>Vakantiebijslag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.vakBsl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>OpgRchtVakBsl</strong><br /><small>Opgebouwde recht vakantiebijslag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.opgRchtVakBsl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>OpnAvwb</strong><br /><small>Opname arbeidsvoorwaardenbedrag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.opnAvwb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>OpbAvwb</strong><br /><small>Opbouw arbeidsvoorwaardenbedrag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.opbAvwb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>LnInGld</strong><br /><small>Loon in geld</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.lnInGld.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>WrdLn</strong><br /><small>Waarde niet in geld uitgekeerd loon</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.wrdLn.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>LnOwrk</strong><br /><small>Loon uit overwerk</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.lnOwrk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>VerstrAanv</strong><br /><small>Verstrekte aanvulling op uitkering werknemersverzekering</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.verstrAanv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                  </div><!--end left column-->
+
+                  <div class="col">
+                    <!--start right column-->
+                    <div class="row">
+                      <div class="col-6"><strong>IngLbPh</strong><br /><small>Ingehouden loonbelasting / premie volksverzekeringen</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.ingLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAofLg</strong><br /><small>Premie Aof laag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAofLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAofHg</strong><br /><small>Premie Aof hoog</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAofHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAofUit</strong><br /><small>Premie Aof uitkering</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAofUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>OpslWko</strong><br /><small>Opslag Wko</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.opslWko.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>IngLbPh</strong><br /><small>Ingehouden loonbelasting / premie volksverzekeringen</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.ingLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrGediffWhk</strong><br /><small>Gedifferentieerde premie Whk</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prGediffWhk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAwfLg</strong><br /><small>Premie AWf laag</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAwfLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAwfHg</strong><br /><small>Premie AWf hoog</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAwfHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrAwfHz</strong><br /><small>Premie AWf herzien</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prAwfHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>PrUfo</strong><br /><small>Premie Ufo</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.prUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>BijdrZvw</strong><br /><small>Ingehouden bijdrage Zvw</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.bijdrZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>WghZvw</strong><br /><small>Werkgeversheffing Zvw</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.wghZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>WrdPrGebrAut</strong><br /><small>Waarde privégebruik auto</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.wrdPrGebrAut.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>WrknBijdrAut</strong><br /><small>Werknemersbijdrage privégebruik auto</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.wrknBijdrAut.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>Reisk</strong><br /><small>Bedrag vergoeding reiskosten</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.reisk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>VerrArbKrt</strong><br /><small>Verrekende arbeidskorting</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.verrArbKrt.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>AantVerlU</strong><br /><small>Aantal verloonde uren</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.aantVerlU : ''}}</span></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-6"><strong>BedrRntKstvPersl</strong><br /><small>Bedrag rente- en/of kostenvoordeel personeelslening</small></div>
+                      <div class="col-3 text-right"><span>{{taxCumulative ? taxCumulative.bedrRntKstvPersl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                    </div>
+                  </div><!--end right column-->
+                </div>
+
+              </p-accordionTab>
+            </p-accordion>
+
+          </td>
+          <td></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="visibleSidebarDetails" position="right" [baseZIndex]="10000" styleClass="p-sidebar-md">
+  <psp-employee-details [model]="employeeDetailsModel"></psp-employee-details>
+</p-sidebar>
+
+
+

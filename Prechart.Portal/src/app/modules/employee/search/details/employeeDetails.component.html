@@ -1,0 +1,131 @@
+<div>
+  <h3>{{model ? model.significantAchternaam +' '+ model.voorletter : ''}}</h3>
+  <p-divider></p-divider>
+
+  <p-panel>
+    <ng-template pTemplate="header">
+      <strong>Binnenland adres</strong>
+    </ng-template>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col-6">
+            <strong>Huisnummer</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.huisNr : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Huisnummer Toevoeging</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.huisNrToev : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Straatnaam</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.str : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Plaatsnaam</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.woonpl : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Postcode</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.pc : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Locatieomschrijving</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBinnenland.locOms : ''}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-panel>
+
+  <p-divider *ngIf="hasForeignAddress"></p-divider>
+
+  <p-panel *ngIf="hasForeignAddress">
+    <ng-template pTemplate="header">
+      <strong>Buitenland adres</strong>
+    </ng-template>
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <div class="col-6">
+            <strong>Huisnummer</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.huisNr : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Straatnaam</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.str : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Regionaam</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.reg : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Plaatsnaam</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.woonpl : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Postcode</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.pc : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Landcode</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.landCd : ''}}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <strong>Locatieomschrijving</strong>
+          </div>
+          <div class="col-3">
+            <span>{{model ? model.adresBuitenland.locOms : ''}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-panel>
+
+</div>

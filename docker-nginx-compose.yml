@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: server-nginx
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+      - '81:81' 
+
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+
+networks:
+  default:
+    external:
+      name: prechartservice_svc-#{dockerEnvironment}#-#{tenant}#-network

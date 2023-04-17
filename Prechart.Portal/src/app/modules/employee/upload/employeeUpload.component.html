@@ -1,0 +1,65 @@
+<div class="div-center p-2">
+  <h3>Uploaden XML</h3>
+  <p-fileUpload #formUpload name="fileUpload[]"
+                [customUpload]="true"
+                (uploadHandler)="uploadFile($event, formUpload)"
+                (onSelect)="onSelectUpload()"
+                [multiple]="true"
+                accept=".xml"
+                [showUploadButton]="showButton"
+                [showCancelButton]="showButton">
+
+    <ng-template pTemplate="toolbar">
+      <div *ngIf="progressVisible" class="mt-2">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      </div>
+    </ng-template>
+
+    <ng-template let-file pTemplate="file">
+      <div class="grid">
+        <div class="col-2"></div>
+        <div class="col-4 flex text-left">
+          <div class="p-fluid">
+            <span>{{file.name}}</span>
+          </div>
+        </div>
+        <div class="col-1">
+          <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="removeFile($event, file, formUpload)" *ngIf="showButton"></button>
+        </div>
+        <div class="col-5"></div>
+      </div>
+      <p-divider></p-divider>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <div *ngIf="uploadedFiles.length">
+        <div *ngFor="let result of uploadedFiles">
+          <div class="grid">
+            <div class="col-2"></div>
+            <div class="col-4 flex text-left">
+              <div class="p-fluid">
+                <span>{{result.fileName}}</span>
+              </div>
+            </div>
+            <div class="col-1">
+              <div *ngIf="result.isValid; else tmplNotValid">
+                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+              </div>
+
+              <ng-template #tmplNotValid>
+                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+              </ng-template>
+            </div>
+
+            <div class="col-5 text-left">
+              <span>{{result.errors}}</span>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+
+  <p-toast position="top-right" key="tr"></p-toast>
+</div>

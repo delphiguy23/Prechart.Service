@@ -1,0 +1,298 @@
+<p-accordion>
+  <p-accordionTab *ngFor="let data of model">
+    <ng-template pTemplate="header">Nummer inkomstenverhouding: {{data.numIv}} &nbsp;|&nbsp; Tax Periode: {{data.taxPeriode}} &nbsp;|&nbsp; Verwerkingsdatum: {{data.taxFileProcessDate | date:'yyyy-MM-dd'}} &nbsp;|&nbsp; Collectieve type: {{data.collectieveType}}</ng-template>
+    <ng-template pTemplate="content">
+      <p-tabView>
+        <p-tabPanel header="Werknemergegevens" [selected]="true">
+          <div class="row text-left">
+            <div class="col">
+              <!--start left column-->
+              <div class="row">
+                <div class="col-6"><strong>LnLbPh</strong><br /><small>Loon voor de Loonbelasting en Premieheffingen Volksverzekeringen</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>LnSv</strong><br /><small>Loon voor de Sociale Verzekeringen</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnSv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAofAnwLg</strong><br /><small>Aanwas in het cumulatieve premieloon Aof laag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAofAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAofAnwHg</strong><br /><small>Aanwas in het cumulatieve premieloon Aof hoog</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAofAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAofAnwUit</strong><br /><small>Aanwas in het cumulatieve premieloon Aof uitkering</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAofAnwUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAwfAnwLg</strong><br /><small>Aanwas in het cumulatieve premieloon AWf laag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAwfAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAwfAnwHg</strong><br /><small>Aanwas in het cumulatieve premieloon AWf hoog</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAwfAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrlnAwfAnwHz</strong><br /><small>Aanwas in het cumulatieve premieloon AWf herzien</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prlnAwfAnwHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrLnUfo</strong><br /><small>Aanwas in het cumulatieve premieloon Ufo</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prLnUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>LnTabBb</strong><br /><small>Loon belast volgens tabel bijzondere beloningen</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnTabBb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>VakBsl</strong><br /><small>Vakantiebijslag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.vakBsl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>OpgRchtVakBsl</strong><br /><small>Opgebouwde recht vakantiebijslag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.opgRchtVakBsl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>OpnAvwb</strong><br /><small>Opname arbeidsvoorwaardenbedrag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.opnAvwb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>OpbAvwb</strong><br /><small>Opbouw arbeidsvoorwaardenbedrag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.opbAvwb.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>LnInGld</strong><br /><small>Loon in geld</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnInGld.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>WrdLn</strong><br /><small>Waarde niet in geld uitgekeerd loon</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.wrdLn.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>LnOwrk</strong><br /><small>Loon uit overwerk</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnOwrk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>VerstrAanv</strong><br /><small>Verstrekte aanvulling op uitkering werknemersverzekering</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.verstrAanv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+            </div><!--end left column-->
+
+            <div class="col">
+              <!--start right column-->
+              <div class="row">
+                <div class="col-6"><strong>IngLbPh</strong><br /><small>Ingehouden loonbelasting / premie volksverzekeringen</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.ingLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAofLg</strong><br /><small>Premie Aof laag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAofLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAofHg</strong><br /><small>Premie Aof hoog</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAofHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAofUit</strong><br /><small>Premie Aof uitkering</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAofUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>OpslWko</strong><br /><small>Opslag Wko</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.opslWko.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IngLbPh</strong><br /><small>Ingehouden loonbelasting / premie volksverzekeringen</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.ingLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrGediffWhk</strong><br /><small>Gedifferentieerde premie Whk</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prGediffWhk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAwfLg</strong><br /><small>Premie AWf laag</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAwfLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAwfHg</strong><br /><small>Premie AWf hoog</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAwfHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrAwfHz</strong><br /><small>Premie AWf herzien</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prAwfHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>PrUfo</strong><br /><small>Premie Ufo</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.prUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>BijdrZvw</strong><br /><small>Ingehouden bijdrage Zvw</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.bijdrZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>WghZvw</strong><br /><small>Werkgeversheffing Zvw</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.wghZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>WrdPrGebrAut</strong><br /><small>Waarde privégebruik auto</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.wrdPrGebrAut.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>WrknBijdrAut</strong><br /><small>Werknemersbijdrage privégebruik auto</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.wrknBijdrAut.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>Reisk</strong><br /><small>Bedrag vergoeding reiskosten</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.reisk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>VerrArbKrt</strong><br /><small>Verrekende arbeidskorting</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.verrArbKrt.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>AantVerlU</strong><br /><small>Aantal verloonde uren</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.aantVerlU : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>BedrRntKstvPersl</strong><br /><small>Bedrag rente- en/of kostenvoordeel personeelslening</small></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.bedrRntKstvPersl.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+            </div><!--end right column-->
+          </div>
+
+        </p-tabPanel>
+        <p-tabPanel header="Inkomsteperiode">
+          <div class="row">
+            <div class="col">
+              <!--start left column-->
+              <div class="row">
+                <div class="col-6"><strong>DatAanv</strong><br /><small>Datum aanvang aangiftetijdvak</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].datAanv | date:'yyyy-MM-dd'}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdAard</strong><br /><small>Code aard arbeidsverhouding</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdAard}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>FsIndFz</strong><br /><small>Code fase indeling F&Z</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].fsIndFz}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>Cao</strong><br /><small>Code CAO</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cao}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdCaoInl</strong><br /><small>Code CAO inlener</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdCaoInl}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndArbovOnbepTd</strong><br /><small>Indicatie arbeidsovereenkomst voor onbepaalde tijd</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indArbovOnbepTd}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndSchriftArbov</strong><br /><small>Indicatie schriftelijke arbeidsovereenkomst</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indSchriftArbov}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndOprov</strong><br /><small>Indicatie oproepovereenkomst</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indOprov}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndJrurennrm</strong><br /><small>Indicatie jaarurennorm</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indJrurennrm}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndPubAanOnbepTd</strong><br /><small>Indicatie publiekrechtelijke aanstelling voor onbepaalde tijd</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indPubAanOnbepTd}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndAvrLkvOudrWn</strong><br /><small>Indicatie aanvraag loonkostenvoordeel oudere werknemer</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indAvrLkvOudrWn}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndAvrLkvAgWn</strong><br /><small>Indicatie aanvraag loonkostenvoordeel arbeidsgehandicapte werknemer</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indAvrLkvAgWn}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndAvrLkvDgBafSb</strong><br /><small>Indicatie aanvraag loonkostenvoordeel doelgroep banenafspraak en scholingsbelemmerden</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indAvrLkvDgBafSb}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndAvrLkvHpAgWn</strong><br /><small>Indicatie aanvraag loonkostenvoordeel herplaatsen arbeidsgehandicapte werknemer</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indAvrLkvHpAgWn}}</span></div>
+              </div>              
+            </div><!--end left column-->
+
+            <div class="col">
+              <!--start right column-->
+              <div class="row">
+                <div class="col-6"><strong>SrtIv</strong><br /><small>Code soort inkomstenverhouding / inkomenscode</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].srtIv}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndLhKort</strong><br /><small>Indicatie loonheffingskorting</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indLhKort}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdInvlVpl</strong><br /><small>Code invloed verzekeringsplicht</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdInvlVpl}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdRdnGnBijt</strong><br /><small>Code reden geen bijtelling auto</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdRdnGnBijt}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>LbTab</strong><br /><small>Code loonbelastingtabel</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].lbTab}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndWao</strong><br /><small>Indicatie verzekerd WAO/IVA/WGA</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indWao}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndWw</strong><br /><small>Indicatie verzekerd WW</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indWw}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndZw</strong><br /><small>Indicatie verzekerd ZW</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indZw}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndWgldOudRegl</strong><br /><small>Indicatie wachtgeld oude regeling</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indWgldOudRegl}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdZvw</strong><br /><small>Code verzekeringssituatie Zvw</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdZvw}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndVakBn</strong><br /><small>Indicatie vakantiebonnen toegepast</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indVakBn}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndSa71</strong><br /><small>Indicatie loon bestaat (mede) uit een AOW-en/of AIO-uitkering voor alleenstaande</small></div>
+                <div class="col-3 text-right">
+                  <span>{{data.inkomstenperiode[0].indSa71}}</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndSa72</strong><br /><small>Indicatie loon inclusief Wajong-uitkering</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indSa72}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>IndSa03</strong><br /><small>Indicatie vervoer vanwege de inhoudingsplichtige</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].indSa03}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>CdIncInkVerm</strong><br /><small>Code incidentele inkomstenvermindering</small></div>
+                <div class="col-3 text-right"><span>{{data.inkomstenperiode[0].cdIncInkVerm}}</span></div>
+              </div>
+            </div><!--end right column-->
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </ng-template>
+  </p-accordionTab>
+</p-accordion>

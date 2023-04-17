@@ -1,0 +1,24 @@
+<p-accordion>
+  <p-accordionTab *ngFor="let data of model">
+    <ng-template pTemplate="header">Nummer inkomstenverhouding: {{data.numIv}} &nbsp;|&nbsp;Tax Periode: {{data.taxPeriode}} &nbsp;|&nbsp; Collectieve type: {{data.collectieveType}}</ng-template>
+    <ng-template pTemplate="content">
+          <div class="row text-left">
+            <div class="col">
+              <!--start left column-->
+              <div class="row">
+                <div class="col-6"><strong>Loon voor de Sociale Verzekeringen</strong><br /></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.lnSv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>Aantal verloonde uren</strong><br /></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.aantVerlU : ''}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-6"><strong>Dagen</strong><br /></div>
+                <div class="col-3 text-right"><span>{{model ? data.werknemersgegevens.days: ''}}</span></div>
+              </div>
+            </div><!--end left column-->
+          </div>
+    </ng-template>
+  </p-accordionTab>
+</p-accordion>

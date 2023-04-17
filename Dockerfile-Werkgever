@@ -1,0 +1,30 @@
+﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+EXPOSE 1433
+
+ENV ASPNETCORE_ENVIRONMENT=Release
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["Prechart.Service.Werkgever/Prechart.Service.Werkgever.csproj", "Prechart.Service.Werkgever/"]
+COPY ["Prechart.Service.Core/Prechart.Service.Core.csproj", "Prechart.Service.Core/"]
+COPY ["Prechart.Service.Globals/Prechart.Service.Globals.csproj", "Prechart.Service.Globals/"]
+RUN dotnet restore "Prechart.Service.Werkgever/Prechart.Service.Werkgever.csproj"
+COPY . .
+WORKDIR "/src/Prechart.Service.Werkgever"
+RUN dotnet build "Prechart.Service.Werkgever.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Prechart.Service.Werkgever.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+RUN mkdir -p /app/config
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update && apt install -y curl iputils-ping && rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT ["dotnet", "Prechart.Service.Werkgever.dll"]

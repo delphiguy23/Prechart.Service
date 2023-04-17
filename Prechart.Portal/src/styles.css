@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.psp-header { background-color: #2196F3; }
+.psp-divider { background-color: #D22D16;width: 100%;height: 3px; }
+.psp-brand { background-color: #f8f9fa;padding: 1rem 1rem; }
+.psp-logo { width: 15em; }
+.psp-content {margin: 5px;}
+.navbar { padding:0 !important; }
+.width-100 { width: 100% }
+.width-25 { width: 25% }
+.div-center { margin: auto; text-align: center }
+.grid {margin-right: 0rem;}
+.table-expand { background-color: #f7f9ff !important; }
+
+psp-search .select-button-small .p-button {
+  padding: 0;
+  height: 2em;
+}
+psp-search .select-button-small { width: 15em;}

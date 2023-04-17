@@ -1,0 +1,394 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuComponent should render the Menu page correctly 1`] = `
+<div
+  id="root1"
+>
+  <p-menubar
+    class="p-element"
+  >
+    <div
+      class="p-menubar p-component"
+    >
+      
+      <a
+        class="p-menubar-button"
+        tabindex="0"
+      >
+        <i
+          class="pi pi-bars"
+        />
+      </a>
+      <p-menubarsub
+        class="p-element"
+        root="root"
+      >
+        <ul
+          class="p-menubar-root-list"
+          role="menubar"
+        >
+          
+          <li
+            class="p-element p-menuitem"
+            ptooltip=""
+            role="none"
+          >
+            <a
+              aria-expanded="false"
+              aria-haspopup="false"
+              class="p-ripple p-element p-menuitem-link"
+              pripple=""
+              role="menuitem"
+              tabindex="0"
+              target="undefined"
+            >
+              
+              <span
+                class="p-menuitem-text"
+              >
+                Belastingen
+              </span>
+              
+              
+              <span
+                class="p-submenu-icon pi pi-angle-down"
+              />
+              
+            </a>
+            
+            
+            <p-menubarsub
+              class="p-element"
+            >
+              <ul
+                class="p-submenu-list"
+                role="menu"
+              >
+                
+                <li
+                  class="p-element p-menuitem"
+                  ptooltip=""
+                  role="none"
+                >
+                  <a
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    class="p-ripple p-element p-menuitem-link"
+                    pripple=""
+                    role="menuitem"
+                    tabindex="0"
+                    target="undefined"
+                  >
+                    
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Belasting Tabellen Wit/Groen
+                    </span>
+                    
+                    
+                    <span
+                      class="p-submenu-icon pi pi-angle-right"
+                    />
+                    
+                  </a>
+                  
+                  
+                  <p-menubarsub
+                    class="p-element"
+                  >
+                    <ul
+                      class="p-submenu-list"
+                      role="menu"
+                    >
+                      
+                      <li
+                        class="p-element p-menuitem"
+                        ptooltip=""
+                        role="none"
+                      >
+                        
+                        <a
+                          class="p-ripple p-element p-menuitem-link"
+                          href="/belastingen/upload"
+                          pripple=""
+                          role="menuitem"
+                          tabindex="0"
+                        >
+                          
+                          <span
+                            class="p-menuitem-text"
+                          >
+                            Uploaden
+                          </span>
+                          
+                          
+                          
+                        </a>
+                        
+                        
+                      </li>
+                      
+                      
+                      <li
+                        class="p-element p-menuitem"
+                        ptooltip=""
+                        role="none"
+                      >
+                        
+                        <a
+                          class="p-ripple p-element p-menuitem-link"
+                          href="/belastingen/search"
+                          pripple=""
+                          role="menuitem"
+                          tabindex="0"
+                        >
+                          
+                          <span
+                            class="p-menuitem-text"
+                          >
+                            Zoek
+                          </span>
+                          
+                          
+                          
+                        </a>
+                        
+                        
+                      </li>
+                      
+                      
+                    </ul>
+                  </p-menubarsub>
+                  
+                </li>
+                
+                
+              </ul>
+            </p-menubarsub>
+            
+          </li>
+          
+          
+          <li
+            class="p-element p-menuitem"
+            ptooltip=""
+            role="none"
+          >
+            <a
+              aria-expanded="false"
+              aria-haspopup="false"
+              class="p-ripple p-element p-menuitem-link"
+              pripple=""
+              role="menuitem"
+              tabindex="0"
+              target="undefined"
+            >
+              
+              <span
+                class="p-menuitem-text"
+              >
+                Employee
+              </span>
+              
+              
+              <span
+                class="p-submenu-icon pi pi-angle-down"
+              />
+              
+            </a>
+            
+            
+            <p-menubarsub
+              class="p-element"
+            >
+              <ul
+                class="p-submenu-list"
+                role="menu"
+              >
+                
+                <li
+                  class="p-element p-menuitem"
+                  ptooltip=""
+                  role="none"
+                >
+                  
+                  <a
+                    class="p-ripple p-element p-menuitem-link"
+                    href="/employee/upload"
+                    pripple=""
+                    role="menuitem"
+                    tabindex="0"
+                  >
+                    
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Uploaden
+                    </span>
+                    
+                    
+                    
+                  </a>
+                  
+                  
+                </li>
+                
+                
+                <li
+                  class="p-element p-menuitem"
+                  ptooltip=""
+                  role="none"
+                >
+                  
+                  <a
+                    class="p-ripple p-element p-menuitem-link"
+                    href="/employee/search"
+                    pripple=""
+                    role="menuitem"
+                    tabindex="0"
+                  >
+                    
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Zoek
+                    </span>
+                    
+                    
+                    
+                  </a>
+                  
+                  
+                </li>
+                
+                
+              </ul>
+            </p-menubarsub>
+            
+          </li>
+          
+          
+          <li
+            class="p-element p-menuitem"
+            ptooltip=""
+            role="none"
+          >
+            <a
+              aria-expanded="false"
+              aria-haspopup="false"
+              class="p-ripple p-element p-menuitem-link"
+              pripple=""
+              role="menuitem"
+              tabindex="0"
+              target="undefined"
+            >
+              
+              <span
+                class="p-menuitem-text"
+              >
+                Werkgever
+              </span>
+              
+              
+              <span
+                class="p-submenu-icon pi pi-angle-down"
+              />
+              
+            </a>
+            
+            
+            <p-menubarsub
+              class="p-element"
+            >
+              <ul
+                class="p-submenu-list"
+                role="menu"
+              >
+                
+                <li
+                  class="p-element p-menuitem"
+                  ptooltip=""
+                  role="none"
+                >
+                  
+                  <a
+                    class="p-ripple p-element p-menuitem-link"
+                    href="/werkgever/management"
+                    pripple=""
+                    role="menuitem"
+                    tabindex="0"
+                  >
+                    
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Beheer
+                    </span>
+                    
+                    
+                    
+                  </a>
+                  
+                  
+                </li>
+                
+                
+                <li
+                  class="p-element p-menuitem"
+                  ptooltip=""
+                  role="none"
+                >
+                  
+                  <a
+                    class="p-ripple p-element p-menuitem-link"
+                    href="/werkgever/collective"
+                    pripple=""
+                    role="menuitem"
+                    tabindex="0"
+                  >
+                    
+                    <span
+                      class="p-menuitem-text"
+                    >
+                      Collectieve Aangifte 
+                    </span>
+                    
+                    
+                    
+                  </a>
+                  
+                  
+                </li>
+                
+                
+              </ul>
+            </p-menubarsub>
+            
+          </li>
+          
+          
+        </ul>
+      </p-menubarsub>
+      <div
+        class="p-menubar-end"
+      >
+        
+        
+      </div>
+      
+      
+    </div>
+  </p-menubar>
+</div>
+`;
+
+exports[`MenuComponent should render the menu items correctly 1`] = `
+DebugElement {
+  "nativeNode": <span
+    class="p-menuitem-text"
+  >
+    Belastingen
+  </span>,
+}
+`;

@@ -1,0 +1,10 @@
+FROM node:latest as node
+WORKDIR /app
+COPY Prechart.Portal/ .
+RUN npm install
+RUN npm run build --prod
+
+FROM nginx:alpine
+COPY --from=node /app/dist/prechart.portal /usr/share/nginx/html
+COPY Logos/Prechart/logo.svg /usr/share/nginx/html/assets/images/logo
+COPY default.conf etc/nginx/conf.d/

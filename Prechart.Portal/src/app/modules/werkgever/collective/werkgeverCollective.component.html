@@ -1,0 +1,219 @@
+<div class="div-center p-2">
+  <h3>Werkgever - Collectieve</h3>
+
+  <p-dropdown [(ngModel)]="ddlWerkgever" [options]="werkgeverList" optionLabel="label" placeholder="Selecteer een werkgever" (onChange)="werkgeverOnChange($event)" styleClass="m-2"></p-dropdown>
+
+  <p-panel header="Werkgevergegevens" class="m-1 text-left">
+    <div class="row">
+      <div class="col">
+        <!--start left column-->
+        <div class="row">
+          <div class="col-6"><strong>Naam</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.naam : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Sector</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.sector : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Fiscaalnummer</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.fiscaalNummer : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Klantnaam</strong></div>
+          <div class="col-3"><span>{{werkgever && werkgever.klant ? werkgever.klant.klantName : ''}}</span></div>
+        </div>
+      </div><!--end left column-->
+
+      <div class="col">
+        <!--start right column-->
+        <div class="row">
+          <div class="col-6"><strong>Loonheffingen Extentie</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.loonheffingenExtentie : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Omzetbelasting Extentie</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.omzetbelastingExtentie : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Datum Actief Vanaf</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.datumActiefVanaf : ''}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-6"><strong>Datum Actief Tot</strong></div>
+          <div class="col-3"><span>{{werkgever ? werkgever.datumActiefTot : ''}}</span></div>
+        </div>
+      </div><!--end right column-->
+    </div>
+    <div class="text-right">
+      <p-button *ngIf="werkgever" label="Toon werknemer" (onClick)="goToEmployee()"></p-button>
+    </div>
+  </p-panel>
+
+  <p-panel header="Collectieve Aangifte" class="m-1 text-left">
+    <p-accordion>
+      <p-accordionTab *ngFor="let collective of collectives">
+        <ng-template pTemplate="header">Tax Periode: {{collective.periode}} &nbsp;|&nbsp; Verwerkingsdatum: {{collective.processedDate | date:'yyyy-MM-dd'}} &nbsp;|&nbsp; Collectieve type: {{collective.collectieveType}}</ng-template>
+        <ng-template pTemplate="content">
+          <p-tabView>
+            <p-tabPanel header="Details">
+              <div class="row">
+                <div class="col">
+                  <!--start left column-->
+                  <div class="row">
+                    <div class="col-6"><strong>TotLnLbPh</strong><br /><small>Totaal Loon voor de Loonbelasting en Premieheffingen Volksverzekeringen</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totLnLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotLnSv</strong><br /><small>Totaal Loon voor de Sociale Verzekeringen</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totLnSv.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAofAnwLg</strong><br /><small>Totaal aanwas in het cumulatieve premieloon Aof laag</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAofAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAofAnwHg</strong><br /><small>Totaal aanwas in het cumulatieve premieloon Aof hoog</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAofAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAofAnwUit</strong><br /><small>Totaal aanwas in het cumulatieve premieloon Aof uitkering</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAofAnwUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAwfAnwLg</strong><br /><small>Totaal aanwas in het cumulatieve premieloon AWf laag</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAwfAnwLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAwfAnwHg</strong><br /><small>Totaal aanwas in het cumulatieve premieloon AWf hoog</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAwfAnwHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrlnAwfAnwHz</strong><br /><small>Totaal aanwas in het cumulatieve premieloon AWf herzien</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrlnAwfAnwHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>PrLnUFO</strong><br /><small>Totaal aanwas in het cumulatieve premieloon Ufo</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.prLnUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>IngLbPh</strong><br /><small>Ingehouden loonbelasting / premie volksverzekeringen</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ingLbPh.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>EHPubUitk</strong><br /><small>Eindheffing publiekrechtelijke uitkeringen en tijdelijke knelpunten van ernstige aard</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ehPubUitk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>EHGebrAuto</strong><br /><small>Eindheffing doorlopend afwisselend gebruik bestelauto</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ehGebrAuto.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>EHVUT</strong><br /><small>Pseudo-eindheffing RVU</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ehVut.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>EhOvsFrfWrkkstrg</strong><br /><small>Eindheffing overschrijding forfaitaire werkkostenregeling</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ehOvsFrfWrkkstrg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>AVZeev</strong><br /><small>Afdrachtvermindering zeevaart</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.avZeev.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                </div><!--end left column-->
+
+                <div class="col">
+                  <!--start right column-->
+                  <div class="row">
+                    <div class="col-6"><strong>VrlAvso</strong><br /><small>Afdrachtvermindering speur– en ontwikkelingswerk</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.vrlAvso.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAofLg</strong><br /><small>Totaal premie Aof laag</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAofLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAofHg</strong><br /><small>Totaal premie Aof hoog</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAofHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAofUit</strong><br /><small>Totaal premie Aof uitkering</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAofUit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotOpslWko</strong><br /><small>Totaal opslag Wko</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totOpslWko.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrGediffWhk</strong><br /><small>Totaal gedifferentieerde premie Whk</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrGediffWhk.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAwfLg</strong><br /><small>Totaal premie AWf laag</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAwfLg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAwfHg</strong><br /><small>Totaal premie AWf hoog</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAwfHg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotPrAwfHz</strong><br /><small>Totaal premie AWf herzien</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totPrAwfHz.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>PrUfo</strong><br /><small>Totaal premie Ufo</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.prUfo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>IngBijdrZvw</strong><br /><small>Totaal ingehouden bijdragen Zvw</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.ingBijdrZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotWghZvw</strong><br /><small>Totaal werkgeversheffing Zvw</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totWghZvw.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotTeBet</strong><br /><small>Totaal te betalen over tijdvak</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totTeBet.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+
+                  <p-divider *ngIf="collective.totSaldo"></p-divider>
+                  <div class="row" *ngIf="collective.totSaldo">
+                    <strong>Saldo Correcties Voorgaand Tijdvak</strong>
+                    <p-table [value]="collective.saldoCorrectiesVoorgaandTijdvak" responsiveLayout="scroll">
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <th>Datum aanvang aangiftetijdvak</th>
+                          <th>Datum einde aangiftetijdvak</th>
+                          <th>Saldo</th>
+                        </tr>
+                      </ng-template>
+                      <ng-template pTemplate="body" let-saldo>
+                        <tr>
+                          <td>{{saldo.datAanvTv | date:'yyyy-MM-dd'}}</td>
+                          <td>{{saldo.datEindTv | date:'yyyy-MM-dd'}}</td>
+                          <td>{{saldo.saldo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'})}}</td>
+                        </tr>
+                      </ng-template>
+                    </p-table>
+                  </div>
+                  <p-divider *ngIf="collective.totSaldo"></p-divider>
+
+                  <div class="row">
+                    <div class="col-6"><strong>TotSaldo</strong><br /><small>Totaal saldo</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totSaldo.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>TotGen</strong><br /><small>Totaal generaal</small></div>
+                    <div class="col-3 text-right"><span>{{collective ? collective.totGen.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span></div>
+                  </div>
+                </div><!--end right column-->
+              </div>
+            </p-tabPanel>
+          </p-tabView>
+        </ng-template>
+      </p-accordionTab>
+    </p-accordion>
+</p-panel>
+
+</div>

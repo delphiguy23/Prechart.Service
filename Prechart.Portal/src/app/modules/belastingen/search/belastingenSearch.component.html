@@ -1,0 +1,411 @@
+<div class="content-section">
+  <div class="grid p-fluid">
+    <div class="col-12 md:col-3 search">
+      <p-card header="Zoek">
+        <div id="wrapper-woondlandBeginsel" class="mb-2">
+          <label for="woondlandBeginsel">Woondlandbeginsel</label>
+          <p-dropdown [(ngModel)]="woondlandBeginsel" [options]="woondlandBeginselList" optionLabel="label" [showClear]="true"></p-dropdown>
+        </div>
+        <div id="wrapper-jaar" class="mb-2">
+          <label for="procesDatum">Procesdatum</label>
+          <p-calendar [(ngModel)]="procesDatum" [maxDate]="maxDate" [minDate]="minDate" [readonlyInput]="true" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+        </div>
+        <div id="wrapper-loontijdvak" class="mb-2">
+          <label for="loontijdvak">Loontijdvak</label>
+          <p-dropdown [(ngModel)]="loontijdvak" [options]="loontijdvakList" optionLabel="label" [showClear]="true" (onChange)="loontijdvakOnChange($event)"></p-dropdown>
+        </div>
+        <div id="wrapper-inkomenWit" class="mb-2">
+          <label for="inkomenWit">Inkomen Wit</label>
+          <p-inputNumber [(ngModel)]="inkomenWit" mode="currency" currency="EUR" locale="nl-NL"></p-inputNumber>
+        </div>
+        <div id="wrapper-inkomenGroen" class="mb-2">
+          <label for="inkomenGroen">Inkomen Groen</label>
+          <p-inputNumber [(ngModel)]="inkomenGroen" mode="currency" currency="EUR" locale="nl-NL"></p-inputNumber>
+        </div>
+        <div id="wrapper-geboortedatum" class="mb-2">
+          <label for="geboortedatum">Geboortedatum</label>
+          <p-calendar [(ngModel)]="geboortedatum" [maxDate]="maxBirthdate" [readonlyInput]="true" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+        </div>
+        <div id="wrapper-basisDagen" class="mb-2">
+          <label for="basisDagen">Basis Dagen</label>
+          <p-inputNumber [(ngModel)]="basisDagen" [disabled]="isDisableBasisDagen"></p-inputNumber>
+        </div>
+        <div id="wrapper-werkgever" class="mb-2">
+          <label for="werkgever">Werkgever</label>
+          <p-dropdown [(ngModel)]="werkgever" [options]="werkgeverList" optionLabel="label" [showClear]="true"></p-dropdown>
+        </div>
+        <div id="wrapper-algemeneHeffingsKortingIndicator" class="mb-2">
+          <label for="algemeneHeffingsKortingIndicator">Algemene Heffingskorting Indicator</label>
+          <p-checkbox [(ngModel)]="algemeneHeffingsKortingIndicator" [binary]="true" class="pl-3"></p-checkbox>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button label="Berekenen" (onClick)="search()"></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+    <div class="col-12 md:col-9">
+      <div *ngIf="progressVisible" class="mt-2">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      </div>
+
+      <p-message severity="error" text="No records found" *ngIf="isVisible"></p-message>
+      <p-panel header="" *ngIf="taxRecordResult">
+        <ng-template pTemplate="header">
+          <h4>Resultaat Bruto Netto</h4>
+        </ng-template>
+
+        <div class="row">
+
+          <div class="col">
+            <!--start left column-->
+            <div class="row">
+              <div class="col-6">
+                <strong>Inkomen Wit</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? inkomenWit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Inkomen Groen</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? inkomenGroen.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Basis Dagen</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? basisDagen : '' }}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Loontijdvak</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? loontijdvakDescription : '' }}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Woonlandbeginsel</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.woonlandbeginselNaam : '' }}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Inhoudingstype</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? inhoudingTypeDescription : '' }}</span>
+              </div>
+            </div>
+
+          </div> <!--end left column-->
+
+          <div class="col">
+            <!--start right column-->
+            <div class="row">
+              <div class="col-6">
+                <strong>Algemene Heffingskorting Indicator</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? ahkIndicatorDescription : '' }}</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <strong>Inhouding Wit</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.inhoudingWit.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Inhouding Groen</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.inhoudingGroen.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Algemene Heffingskorting</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.algemeneHeffingsKorting.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Verrekende Arbeidskorting</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.arbeidsKorting.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Netto te betalen</strong>
+              </div>
+              <div class="col-3">
+                <span>{{taxRecordResult ? taxRecordResult.nettoBetaling.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+          </div><!--end right column-->
+
+        </div>
+      </p-panel>
+
+      <p-divider *ngIf="socialeVerzekeringen"></p-divider>
+
+      <p-panel header="" *ngIf="socialeVerzekeringen">
+        <ng-template pTemplate="header">
+          <h4>Resultaat Sociale Verzekeringen zonder WHK</h4>
+        </ng-template>
+
+        <div class="row">
+
+          <div class="col">
+            <!--start left column-->
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Sociale Verzekeringen Premieloon</strong>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? socialeVerzekeringen.premieBedragSocialeVerzekeringenPremieloon.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Algemene Werkloosheids Fonds</strong>
+                <p-selectButton [options]="highLowList" [(ngModel)]="algemeenWerkloosheidsFonds" optionLabel="label" optionValue="value"
+                                (onChange)="werkloosheidsFondsOnChange($event)" styleClass="select-button-small"></p-selectButton>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? algemeenWerkloosheidsFondsValue.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Wet Kinderopvang</strong>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? socialeVerzekeringen.premieBedragWetKinderopvang.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+          </div> <!--end left column-->
+
+          <div class="col">
+            <!--start right column-->
+
+            <div class="row">
+              <div class="col-6">
+                <!--intentioanlly blank-->
+              </div>
+              <div class="col-3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <!--intentioanlly blank-->
+              </div>
+              <div class="col-3">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Wet Arbeids Ongeschikheid</strong>
+                <p-selectButton [options]="highLowUfoList" [(ngModel)]="wetArbeidsOngeschikheid" optionLabel="label" optionValue="value"
+                                (onChange)="wetArbeidsOngeschikheidOnChange($event)" styleClass="select-button-small"></p-selectButton>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? wetArbeidsOngeschikheidValue.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Wet Langdurige Zorg</strong>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? socialeVerzekeringen.premieBedragWetLangdurigeZorg.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+          </div><!--end right column-->
+        </div>
+      </p-panel>
+
+      <p-divider *ngIf="socialeVerzekeringen"></p-divider>
+
+      <p-panel header="" *ngIf="socialeVerzekeringen">
+        <ng-template pTemplate="header">
+          <h4>Ziektekosten Verzekerings Wet</h4>
+        </ng-template>
+
+        <div class="row">
+          <div class="col">
+            <!--start left column-->
+            <div class="row">
+              <div class="col-6">
+                <strong>Ziektekosten Verzekerings Wet Loon</strong>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? socialeVerzekeringen.premieBedragZiektekostenVerzekeringsWetLoon.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+          </div><!--end left column-->
+
+          <div class="col">
+            <!--start right column-->
+            <div class="row">
+              <div class="col-6">
+                <strong>Ziektekosten Verzekerings Wet</strong>
+                <p-selectButton [options]="verzekeringList" [(ngModel)]="ziektekostenVerzekeringsWet" optionLabel="label" optionValue="value"
+                                (onChange)="ziektekostenVerzekeringsWetOnChange($event)" styleClass="select-button-small"></p-selectButton>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? ziektekostenVerzekeringsWetValue.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+          </div><!--end right column-->
+        </div>
+      </p-panel>
+
+      <p-divider *ngIf="resultaatWhk"></p-divider>
+
+      <p-panel header="" *ngIf="resultaatWhk">
+        <ng-template pTemplate="header">
+          <h4>Resultaat WHK</h4>
+        </ng-template>
+        <div class="row">
+
+          <div class="col">
+            <!--start left column-->
+            <div class="row">
+              <div class="col-6">
+                <strong>Sociale Verzekeringen Premieloon</strong>
+              </div>
+              <div class="col-3">
+                <span>{{socialeVerzekeringen ? socialeVerzekeringen.premieBedragSocialeVerzekeringenPremieloon.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>WGA Vast Werkgever</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragWGAVastWerkgever.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>WGA Vast Werknemer</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragWGAVastWerknemer.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Flex Werkgever</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragFlexWerkgever.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Flex Werknemer</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragFlexWerknemer.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+          </div><!--end left column-->
+
+          <div class="col">
+            <!--start right column-->
+            <div class="row">
+              <div class="col-6">
+                <!--intentioanlly blank-->
+              </div>
+              <div class="col-3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <!--intentioanlly blank-->
+              </div>
+              <div class="col-3">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <strong>ZW Flex</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragZWFlex.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Totaal</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.werkgeverWHKPremieBedragTotaal.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Netto Te Betalen Sub Totaal</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.nettoTeBetalenSubTotaal.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Netto Te Betalen Eind Totaal</strong>
+              </div>
+              <div class="col-3">
+                <span>{{resultaatWhk ? resultaatWhk.nettoTeBetalenEindTotaal.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'}) : ''}}</span>
+              </div>
+            </div>
+          </div><!--end right column-->
+        </div>
+      </p-panel>
+
+    </div>
+  </div>
+</div>

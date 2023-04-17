@@ -1,0 +1,153 @@
+version: "3"
+
+services:
+  #  APIs
+  belastingen:
+    build:
+      context: .
+      dockerfile: Dockerfile-Belastingen
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-belastingen
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.102
+    ports:
+      - "5101:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+  
+  documents:
+    build:
+      context: .
+      dockerfile: Dockerfile-Documents
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-documents
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.103
+    ports:
+      - "5102:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  klant:
+    build:
+      context: .
+      dockerfile: Dockerfile-Klant
+    container_name: #{dockerEnvironment}#-api-klant
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.105
+    ports:
+      - "5103:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  loonheffing:
+    build:
+      context: .
+      dockerfile: Dockerfile-Loonheffings
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-loonheffing
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.107
+    ports:
+      - "5104:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+  
+  person:
+    build:
+      context: .
+      dockerfile: Dockerfile-Person
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-person
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.106
+    ports:
+      - "5105:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  users:
+    build:
+      context: .
+      dockerfile: Dockerfile-Users
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-users
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.101
+    ports:
+      - "5106:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  werkgever:
+    build:
+      context: .
+      dockerfile: Dockerfile-Werkgever
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-werkgever
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.104
+    ports:
+      - "5107:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  batch:
+    build:
+      context: .
+      dockerfile: Dockerfile-Batch
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-batch
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Release
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.108
+    ports:
+      - "5108:80"
+    volumes:
+      - /home/nas/Prechart-Services/AppConfig:/app/config
+
+  #  Portals
+  portal-prechart:
+    build:
+      context: .
+      dockerfile: Dockerfile-Portal-Prechart
+    container_name: #{dockerEnvironment}#-#{tenant}#-api-portal-prechart
+    restart: always
+    networks:
+      svc-#{dockerEnvironment}#-#{tenant}#-network:
+        ipv4_address: 172.100.0.100
+    ports:
+      - "5000:80"
+
+#Networks
+networks:
+  svc-#{dockerEnvironment}#-#{tenant}#-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.100.0.0/16"

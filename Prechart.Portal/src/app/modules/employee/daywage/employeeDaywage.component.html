@@ -1,0 +1,180 @@
+<div class="content-section">
+  <div class="grid p-fluid">
+
+    <div *ngIf="progressVisible" class="mt-2">
+      <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+    </div>
+
+    <div class="col-12 md:col-3 search">
+      <p-card header="Dagloon Werknemers">
+        <div class="mb-2">
+          <label for="ddlWerkgever">Werkgever</label>
+          <p-dropdown [(ngModel)]="ddlWerkgever" [options]="werkgeverList" optionLabel="label" placeholder="Selecteer een werkgever" (onChange)="werkgeverOnChange($event)"></p-dropdown>
+        </div>
+        <div class="mb-2">
+          <label for="ddlName" class="mr-2">Employee Naam</label>
+          <p-progressSpinner [style]="{width: '20px', height: '20px'}" strokeWidth="2" animationDuration="1s" *ngIf="showNameSpinner"></p-progressSpinner>
+
+          <p-dropdown [options]="personNames" [(ngModel)]="selectedPerson" optionLabel="significantAchternaam" [filter]="true" filterBy="significantAchternaam" [showClear]="true" placeholder="Selecteer een employee" [disabled]="ddlNameDisabled">
+            <ng-template pTemplate="selectedItem">
+              <div class="person-item person-item-value" *ngIf="selectedPerson">
+                <div>{{selectedPerson.significantAchternaam}} {{selectedPerson.voorletter}}</div>
+              </div>
+            </ng-template>
+            <ng-template let-person pTemplate="item">
+              <div class="person-item">
+                <div>{{person.significantAchternaam}} {{person.voorletter}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+        </div>
+
+        <ng-template pTemplate="footer">
+          <p-button label="Zoek" (onClick)="search()"></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-9">
+      <p-panel header="" *ngIf="personData">
+        <ng-template pTemplate="header">
+          <h4>Employee</h4>
+        </ng-template>
+
+        <div class="row">
+
+          <div class="col">
+            <!--start left column-->
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Naam</strong>
+              </div>
+              <div class="col-3">
+                <span>{{personData.significantAchternaam +" " +  personData.voorletter}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Personeelsnummer</strong>
+              </div>
+              <div class="col-3">
+                <span>{{personData.taxPaymentDetails[0].personNr}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Loonheffingsnummer</strong>
+              </div>
+              <div class="col-3">
+                <span>{{personData.werkgever[0].loonheffingsNr}}</span>
+              </div>
+            </div>
+
+          </div> <!--end left column-->
+
+          <div class="col">
+            <!--start right column-->
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Geboortedatum</strong>
+              </div>
+              <div class="col-3">
+                <span>{{personData.geboortedatum | date:'yyyy-MM-dd'}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong>Klant</strong>
+              </div>
+              <div class="col-3">
+                <span>{{personData.werkgever[0].klant}}</span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <strong></strong>
+              </div>
+              <div class="col-3">
+                <button pButton pRipple type="button" label="Berekenen" class="p-button-raised p-button-success" (click)="openCalculateDaywage(personData.personId, personData.werkgever[0].loonheffingsNr)"></button>
+              </div>
+            </div>
+
+          </div><!--end right column-->
+
+        </div>
+      </p-panel>
+
+      <p-divider *ngIf="personData"></p-divider>
+      <p-panel header="" *ngIf="personData">
+        <ng-template pTemplate="header">
+          <h4>Dagloon</h4>
+        </ng-template>
+
+        <p-accordion>
+          <p-accordionTab *ngFor="let data of personDaywageData">
+            <ng-template pTemplate="header">Referenceperiode Begindatum: {{data.startOfReferencePeriode | date:'yyyy-MM-dd'}} &nbsp;|&nbsp; Referenceperiode Einddatum: {{data.endOfReferencePeriode | date:'yyyy-MM-dd'}} &nbsp;|&nbsp; Dagloon: {{data.daywageBasedOnReferencePeriode.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'})}}</ng-template>
+            <ng-template pTemplate="content">
+              <div class="row text-left">
+                <div class="col">
+                  <!--start left column-->
+                  <div class="row">
+                    <div class="col-6"><strong>Datum AO</strong><br /></div>
+                    <div class="col-3 text-right"><span>{{data.startOfSickLeave | date:'yyyy-MM-dd'}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><strong>Aantal SV dagen in referte periode</strong><br /></div>
+                    <div class="col-3 text-right"><span>{{data.daysInReferencePeriode}}</span></div>
+                  </div>
+                </div><!--end left column-->
+
+                <div class="col">
+                  <!--start right column-->
+                  <div class="row">
+                    <div class="col-6"><strong>Totaal SV Loon betaald in referte periode</strong><br /></div>
+                    <div class="col-3 text-right"><span>{{data.totalPaidInReferencePeriode.toLocaleString("nl-NL", {style: 'currency',currency: 'EUR'})}}</span></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6"><br /></div>
+                    <div class="col-3 text-right"></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-3"><br /></div>
+                    <div class="col-6 text-right"><button pButton pRipple type="button" label="Toon Werknemergegevens" class="p-button-raised p-button-info" (click)="openTaxDetails(data.taxDetails)"></button></div>
+                  </div>
+                </div><!--end right column-->
+              </div>
+            </ng-template>
+          </p-accordionTab>
+        </p-accordion>
+
+      </p-panel>
+
+    </div>
+
+  </div>
+</div>
+
+
+<p-dialog [(visible)]="calculateDaywageDialog" [style]="{width: '600px'}" header="Dagloon Berekenen" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <span>AO-datum invoeren:</span>
+    <p-calendar [(ngModel)]="calculateSickleaveDate" [maxDate]="maxDate" [readonlyInput]="true" dateFormat="yy-mm-dd" [showIcon]="true" appendTo="body"></p-calendar>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Annuleren" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+    <button pButton label="Berekenen" icon="pi pi-check" class="p-button-text" (click)="calculateDaywage()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="taxDetailsDialog" [style]="{width: '1000px'}" header="Werknemergegevens" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <psp-employee-daywage-tax-details [model]="taxDetailsDialogData"></psp-employee-daywage-tax-details>
+  </ng-template>
+</p-dialog>

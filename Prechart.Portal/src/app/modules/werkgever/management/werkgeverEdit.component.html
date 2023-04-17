@@ -1,0 +1,44 @@
+<div class="text-left">
+  <div class="row">
+    <div class="col">
+      <!--start left column-->
+      <div class="row ms-1 me-1">
+        <label for="naam">Naam</label>
+        <input type="text" pInputText id="naam" [(ngModel)]="model.naam" />
+      </div>
+
+      <div class="row ms-1 me-1">
+        <label for="sector">Sector</label>
+        <input type="text" pInputText id="sector" [(ngModel)]="model.sector" />
+      </div>
+
+      <div class="row">
+        <label for="datumActiefVanaf" class="ms-3">Datum Actief Vanaf</label>
+        <p-calendar [(ngModel)]="model.datumActiefVanaf" [readonlyInput]="true" dateFormat="yy-mm-dd" dataType="string" [showIcon]="true" appendTo="body"></p-calendar>
+      </div>
+
+      <div class="row">
+        <label for="datumActiefTot" class="ms-3">Datum Actief Tot</label>
+        <p-calendar [(ngModel)]="model.datumActiefTot" [readonlyInput]="true" dateFormat="yy-mm-dd" dataType="string" [showIcon]="true" appendTo="body"></p-calendar>
+      </div>
+    </div>
+
+    <div class="col">
+      <!--start right column-->
+      <div class="row ms-1 me-1">
+        <label for="fiscaalNummer">Fiscaalnummer</label>
+        <input type="text" pInputText id="fiscaalNummer" [(ngModel)]="model.fiscaalNummer" />
+      </div>
+
+      <div class="row ms-1 me-1">
+        <label for="loonheffingenExtentie">Loonheffingen Extentie</label>
+        <input type="text" pInputText id="loonheffingenExtentie" [(ngModel)]="model.loonheffingenExtentie" />
+      </div>
+
+      <div class="row ms-1 me-1">
+        <label for="omzetbelastingExtentie">Omzetbelasting Extentie</label>
+        <input type="text" pInputText id="omzetbelastingExtentie" [(ngModel)]="model.omzetbelastingExtentie" />
+      </div>
+    </div>
+  </div>
+</div>

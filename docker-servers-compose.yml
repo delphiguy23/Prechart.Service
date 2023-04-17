@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  rabbitmq3:
+    image: rabbitmq:3.8-management-alpine
+    container_name: server-rabbitmq
+    restart: always
+    networks:
+      svc-server-network:
+        ipv4_address: 172.255.0.10
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  #mongo-container:
+  #  image: mongo:latest
+  #  restart: always
+  #  environment:
+  #      - MONGO_INITDB_ROOT_USERNAME=root
+  #      - MONGO_INITDB_ROOT_PASSWORD=Calender365
+  #  networks:
+  #    svc-server-network:
+  #      ipv4_address: 172.255.0.30
+  #  ports:
+  #    - "27017:27017"
+  #  command: mongod
+
+  sql:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: server-azuresql
+    restart: always
+    environment:
+      - ACCEPT_EULA=1
+      - MSSQL_SA_PASSWORD=Calender365
+    networks:
+      svc-server-network:
+        ipv4_address: 172.255.0.20
+    ports:
+      - "1433:1433"
+
+networks:
+  svc-server-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.255.0.0/16"

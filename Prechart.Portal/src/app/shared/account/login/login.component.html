@@ -1,0 +1,38 @@
+<div class="div-center mt-5">
+  <div class="branding p-4">
+    <img src="assets/images/logo/logo.svg" alt="Prechart Software" class="psp-logo"/>
+  </div>
+  <p-card header="" subheader="" [style]="{width: '30em', margin: 'auto', 'text-align': 'center'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+    </ng-template>
+
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-2">
+          <label for="username">Gebruikersnaam</label>
+          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Een gebruikersnaam is verplicht</div>
+          </div>
+        </div>
+        <div class="form-group mb-2">
+          <label for="password">Wachtwoord</label>
+          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Een wachtwoord is verplicht</div>
+          </div>
+        </div>
+        <div class="form-group mb-2">
+          <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <p-message severity="error" text="De gebruikersnaam of het wachtwoord dat je hebt ingevoerd is ongeldig" *ngIf="isVisible"></p-message>
+    </ng-template>
+  </p-card>
+</div>

@@ -1,0 +1,90 @@
+<div class="div-center p-2">
+  <h3>Werkgever</h3>
+
+  <div *ngIf="werkgevers" class="mt-3">
+    <p-table [columns]="werkgeverCols" [value]="werkgevers" responsiveLayout="scroll" [paginator]="true" [rows]="30" dataKey="id">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th></th>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns" let-expanded="expanded">
+        <tr>
+          <td>
+            <button type="button" pButton pRipple [pRowToggler]="rowData" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+          </td>
+          <td *ngFor="let col of columns">
+            {{rowData[col.field]}}
+          </td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="werkgeverEdit(rowData)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteWerkgever(rowData)"></button>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="rowexpansion" let-rowData>
+        <tr>
+          <td colspan="10">
+            <div class="p-3">
+
+              <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mb-2" (click)="whkPremieCreate(rowData.id)"></button>
+
+              <p-table [columns]="colsWhkPremies" [value]="rowData.whkPremies" responsiveLayout="scroll" dataKey="whkId">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th *ngFor="let colPremie of columns">
+                      {{colPremie.header}}
+                    </th>
+                    <th></th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowDetail let-columns="columns">
+                  <tr class="table-expand">
+                    <td *ngFor="let colPremie of columns">
+                      {{rowDetail[colPremie.field]}}
+                    </td>
+                    <td>
+                      <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="whkPremieEdit(rowDetail)"></button>
+                      <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteWhkPremie(rowDetail)"></button>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <p-dialog [(visible)]="werkgeverEditDialog" [style]="{width: '700px'}" header="Werkgever wijzigen" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <psp-werkgever-edit [model]="werkgeverModel"></psp-werkgever-edit>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Annuleren" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton label="Opslaan" icon="pi pi-check" class="p-button-text" (click)="saveWerkgever()"></button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog [(visible)]="whkPremieEditDialog" [style]="{width: '700px'}" header="WHK Premie wijzigen" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <psp-whkpremie-edit [model]="whkPremieModel"></psp-whkpremie-edit>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton pRipple label="Annuleren" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton label="Opslaan" icon="pi pi-check" class="p-button-text" (click)="saveWhkPremie()"></button>
+    </ng-template>
+  </p-dialog>
+
+  <p-confirmDialog [style]="{width: '600px'}"></p-confirmDialog>
+
+  <p-toast position="top-right" key="tr"></p-toast>
+</div>

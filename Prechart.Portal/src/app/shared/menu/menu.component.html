@@ -1,0 +1,8 @@
+<p-menubar [model]="menuItems">
+  <ng-template pTemplate="start">
+    <a class="psp-brand " href="#"><img src="assets/images/logo/logo.svg" alt="Prechart Software" class="psp-logo" /></a>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <p-button  label="Loguit" icon="pi pi-power-off" (onClick)="logout()"></p-button>
+  </ng-template>
+</p-menubar>

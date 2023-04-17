@@ -1,0 +1,1384 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BelastingenSearchComponent should have country dropdown 1`] = `
+<div
+  id="root3"
+>
+  <div
+    class="content-section"
+  >
+    <div
+      class="grid p-fluid"
+    >
+      <div
+        class="col-12 md:col-3 search"
+      >
+        <p-card
+          class="p-element"
+          header="Zoek"
+        >
+          <div
+            class="p-card p-component"
+          >
+            
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                 Zoek 
+                
+              </div>
+              
+              
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class="mb-2"
+                  id="wrapper-woondlandBeginsel"
+                >
+                  <label
+                    for="woondlandBeginsel"
+                  >
+                    Woondlandbeginsel
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-jaar"
+                >
+                  <label
+                    for="procesDatum"
+                  >
+                    Procesdatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-loontijdvak"
+                >
+                  <label
+                    for="loontijdvak"
+                  >
+                    Loontijdvak
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper p-inputwrapper-filled ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      <span
+                        class="p-element p-dropdown-label p-inputtext"
+                        id="pr_id_17_label"
+                      >
+                        Dag
+                        
+                        
+                        
+                      </span>
+                      
+                      
+                      
+                      <i
+                        class="p-dropdown-clear-icon pi pi-times"
+                      />
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenWit"
+                >
+                  <label
+                    for="inkomenWit"
+                  >
+                    Inkomen Wit
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenGroen"
+                >
+                  <label
+                    for="inkomenGroen"
+                  >
+                    Inkomen Groen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-geboortedatum"
+                >
+                  <label
+                    for="geboortedatum"
+                  >
+                    Geboortedatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-basisDagen"
+                >
+                  <label
+                    for="basisDagen"
+                  >
+                    Basis Dagen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input p-filled"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-werkgever"
+                >
+                  <label
+                    for="werkgever"
+                  >
+                    Werkgever
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-algemeneHeffingsKortingIndicator"
+                >
+                  <label
+                    for="algemeneHeffingsKortingIndicator"
+                  >
+                    Algemene Heffingskorting Indicator
+                  </label>
+                  <p-checkbox
+                    class="p-element pl-3 ng-untouched ng-pristine ng-valid"
+                  >
+                    <div
+                      class="p-checkbox p-component"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-checked="false"
+                          type="checkbox"
+                          value="undefined"
+                        />
+                      </div>
+                      <div
+                        class="p-checkbox-box"
+                      >
+                        <span
+                          class="p-checkbox-icon"
+                        />
+                      </div>
+                    </div>
+                    
+                  </p-checkbox>
+                </div>
+                
+                
+              </div>
+              <div
+                class="p-card-footer"
+              >
+                <p-button
+                  class="p-element"
+                  label="Berekenen"
+                >
+                  <button
+                    class="p-ripple p-element p-button p-component"
+                    pripple=""
+                    type="button"
+                  >
+                    
+                    
+                    <span
+                      class="p-button-label"
+                    >
+                      Berekenen
+                    </span>
+                    
+                    
+                  </button>
+                </p-button>
+                
+              </div>
+              
+            </div>
+          </div>
+        </p-card>
+      </div>
+      <div
+        class="col-12 md:col-9"
+      >
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BelastingenSearchComponent should have the Search field 1`] = `
+<div
+  id="root2"
+>
+  <div
+    class="content-section"
+  >
+    <div
+      class="grid p-fluid"
+    >
+      <div
+        class="col-12 md:col-3 search"
+      >
+        <p-card
+          class="p-element"
+          header="Zoek"
+        >
+          <div
+            class="p-card p-component"
+          >
+            
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                 Zoek 
+                
+              </div>
+              
+              
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class="mb-2"
+                  id="wrapper-woondlandBeginsel"
+                >
+                  <label
+                    for="woondlandBeginsel"
+                  >
+                    Woondlandbeginsel
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-jaar"
+                >
+                  <label
+                    for="procesDatum"
+                  >
+                    Procesdatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-loontijdvak"
+                >
+                  <label
+                    for="loontijdvak"
+                  >
+                    Loontijdvak
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper p-inputwrapper-filled ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      <span
+                        class="p-element p-dropdown-label p-inputtext"
+                        id="pr_id_12_label"
+                      >
+                        Dag
+                        
+                        
+                        
+                      </span>
+                      
+                      
+                      
+                      <i
+                        class="p-dropdown-clear-icon pi pi-times"
+                      />
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenWit"
+                >
+                  <label
+                    for="inkomenWit"
+                  >
+                    Inkomen Wit
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenGroen"
+                >
+                  <label
+                    for="inkomenGroen"
+                  >
+                    Inkomen Groen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-geboortedatum"
+                >
+                  <label
+                    for="geboortedatum"
+                  >
+                    Geboortedatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-basisDagen"
+                >
+                  <label
+                    for="basisDagen"
+                  >
+                    Basis Dagen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input p-filled"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-werkgever"
+                >
+                  <label
+                    for="werkgever"
+                  >
+                    Werkgever
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-algemeneHeffingsKortingIndicator"
+                >
+                  <label
+                    for="algemeneHeffingsKortingIndicator"
+                  >
+                    Algemene Heffingskorting Indicator
+                  </label>
+                  <p-checkbox
+                    class="p-element pl-3 ng-untouched ng-pristine ng-valid"
+                  >
+                    <div
+                      class="p-checkbox p-component"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-checked="false"
+                          type="checkbox"
+                          value="undefined"
+                        />
+                      </div>
+                      <div
+                        class="p-checkbox-box"
+                      >
+                        <span
+                          class="p-checkbox-icon"
+                        />
+                      </div>
+                    </div>
+                    
+                  </p-checkbox>
+                </div>
+                
+                
+              </div>
+              <div
+                class="p-card-footer"
+              >
+                <p-button
+                  class="p-element"
+                  label="Berekenen"
+                >
+                  <button
+                    class="p-ripple p-element p-button p-component"
+                    pripple=""
+                    type="button"
+                  >
+                    
+                    
+                    <span
+                      class="p-button-label"
+                    >
+                      Berekenen
+                    </span>
+                    
+                    
+                  </button>
+                </p-button>
+                
+              </div>
+              
+            </div>
+          </div>
+        </p-card>
+      </div>
+      <div
+        class="col-12 md:col-9"
+      >
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BelastingenSearchComponent should render the Search page correctly 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="content-section"
+  >
+    <div
+      class="grid p-fluid"
+    >
+      <div
+        class="col-12 md:col-3 search"
+      >
+        <p-card
+          class="p-element"
+          header="Zoek"
+        >
+          <div
+            class="p-card p-component"
+          >
+            
+            <div
+              class="p-card-body"
+            >
+              <div
+                class="p-card-title"
+              >
+                 Zoek 
+                
+              </div>
+              
+              
+              <div
+                class="p-card-content"
+              >
+                <div
+                  class="mb-2"
+                  id="wrapper-woondlandBeginsel"
+                >
+                  <label
+                    for="woondlandBeginsel"
+                  >
+                    Woondlandbeginsel
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-jaar"
+                >
+                  <label
+                    for="procesDatum"
+                  >
+                    Procesdatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-loontijdvak"
+                >
+                  <label
+                    for="loontijdvak"
+                  >
+                    Loontijdvak
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper p-inputwrapper-filled ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      <span
+                        class="p-element p-dropdown-label p-inputtext"
+                        id="pr_id_7_label"
+                      >
+                        Dag
+                        
+                        
+                        
+                      </span>
+                      
+                      
+                      
+                      <i
+                        class="p-dropdown-clear-icon pi pi-times"
+                      />
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenWit"
+                >
+                  <label
+                    for="inkomenWit"
+                  >
+                    Inkomen Wit
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-inkomenGroen"
+                >
+                  <label
+                    for="inkomenGroen"
+                  >
+                    Inkomen Groen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    currency="EUR"
+                    locale="nl-NL"
+                    mode="currency"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-geboortedatum"
+                >
+                  <label
+                    for="geboortedatum"
+                  >
+                    Geboortedatum
+                  </label>
+                  <p-calendar
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    dateformat="yy-mm-dd"
+                  >
+                    <span
+                      class="p-calendar p-calendar-w-btn"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="p-inputtext p-component"
+                        placeholder=""
+                        readonly=""
+                        type="text"
+                      />
+                      
+                      <button
+                        class="p-element p-ripple p-datepicker-trigger p-button p-component p-button-icon-only"
+                        pbutton=""
+                        pripple=""
+                        tabindex="0"
+                        type="button"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="p-button-icon pi pi-calendar"
+                        />
+                        <span
+                          aria-hidden="true"
+                          class="p-button-label"
+                        >
+                           
+                        </span>
+                      </button>
+                      
+                      
+                      
+                    </span>
+                  </p-calendar>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-basisDagen"
+                >
+                  <label
+                    for="basisDagen"
+                  >
+                    Basis Dagen
+                  </label>
+                  <p-inputnumber
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                  >
+                    <span
+                      class="p-inputnumber p-component"
+                    >
+                      <input
+                        class="p-inputtext p-component p-element p-inputnumber-input p-filled"
+                        inputmode="decimal"
+                        pinputtext=""
+                      />
+                      
+                      
+                      
+                      
+                    </span>
+                  </p-inputnumber>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-werkgever"
+                >
+                  <label
+                    for="werkgever"
+                  >
+                    Werkgever
+                  </label>
+                  <p-dropdown
+                    class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+                    optionlabel="label"
+                  >
+                    <div
+                      class="p-dropdown p-component p-dropdown-clearable"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-expanded="false"
+                          aria-haspopup="listbox"
+                          readonly=""
+                          role="combobox"
+                          type="text"
+                        />
+                      </div>
+                      
+                      <span
+                        class="p-dropdown-label p-inputtext p-placeholder p-dropdown-label-empty"
+                      >
+                        empty
+                      </span>
+                      
+                      
+                      
+                      <div
+                        aria-haspopup="listbox"
+                        aria-label="dropdown trigger"
+                        class="p-dropdown-trigger"
+                        role="button"
+                      >
+                        <span
+                          class="p-dropdown-trigger-icon pi pi-chevron-down"
+                        />
+                      </div>
+                      
+                    </div>
+                  </p-dropdown>
+                </div>
+                <div
+                  class="mb-2"
+                  id="wrapper-algemeneHeffingsKortingIndicator"
+                >
+                  <label
+                    for="algemeneHeffingsKortingIndicator"
+                  >
+                    Algemene Heffingskorting Indicator
+                  </label>
+                  <p-checkbox
+                    class="p-element pl-3 ng-untouched ng-pristine ng-valid"
+                  >
+                    <div
+                      class="p-checkbox p-component"
+                    >
+                      <div
+                        class="p-hidden-accessible"
+                      >
+                        <input
+                          aria-checked="false"
+                          type="checkbox"
+                          value="undefined"
+                        />
+                      </div>
+                      <div
+                        class="p-checkbox-box"
+                      >
+                        <span
+                          class="p-checkbox-icon"
+                        />
+                      </div>
+                    </div>
+                    
+                  </p-checkbox>
+                </div>
+                
+                
+              </div>
+              <div
+                class="p-card-footer"
+              >
+                <p-button
+                  class="p-element"
+                  label="Berekenen"
+                >
+                  <button
+                    class="p-ripple p-element p-button p-component"
+                    pripple=""
+                    type="button"
+                  >
+                    
+                    
+                    <span
+                      class="p-button-label"
+                    >
+                      Berekenen
+                    </span>
+                    
+                    
+                  </button>
+                </p-button>
+                
+              </div>
+              
+            </div>
+          </div>
+        </p-card>
+      </div>
+      <div
+        class="col-12 md:col-9"
+      >
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;

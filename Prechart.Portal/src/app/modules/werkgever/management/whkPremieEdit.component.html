@@ -1,0 +1,48 @@
+<div class="text-left">
+  <div>
+    <div class="row">
+      <div class="col">
+        <!--start left column-->
+        <div class="row">
+          <label for="wgaVastWerkgever">WGA Vast Werkgever %</label>
+          <p-inputNumber [(ngModel)]="model.wgaVastWerkgever" inputId="wgaVastWerkgever" mode="decimal" locale="nl-NL" [minFractionDigits]="3"></p-inputNumber>
+        </div>
+
+        <div class="row">
+          <label for="flexWerkgever">Flex Werkgever %</label>
+          <p-inputNumber [(ngModel)]="model.flexWerkgever" inputId="flexWerkgever" mode="decimal" locale="nl-NL" [minFractionDigits]="3"></p-inputNumber>
+        </div>
+
+        <div class="row">
+          <label for="zwFlex">ZW Flex %</label>
+          <p-inputNumber [(ngModel)]="model.zwFlex" inputId="zwFlex" mode="decimal" locale="nl-NL" [minFractionDigits]="3"></p-inputNumber>
+        </div>
+        
+      </div>
+
+      <div class="col">
+        <!--start right column-->
+        <div class="row">
+          <label for="wgaVastWerknemer">WGA Vast Werknemer %</label>
+          <p-inputNumber [(ngModel)]="model.wgaVastWerknemer" inputId="wgaVastWerknemer" mode="decimal" locale="nl-NL" [minFractionDigits]="3"></p-inputNumber>
+        </div>
+
+        <div class="row">
+          <label for="flexWerknemer">Flex Werknemer %</label>
+          <p-inputNumber [(ngModel)]="model.flexWerknemer" inputId="flexWerknemer" mode="decimal" locale="nl-NL" [minFractionDigits]="3"></p-inputNumber>
+        </div>
+
+        <div class="row">
+          <label for="actiefVanaf">Datum Actief Vanaf</label>
+          <p-calendar [(ngModel)]="model.actiefVanaf" [readonlyInput]="true" dateFormat="yy-mm-dd" dataType="string" [showIcon]="true" appendTo="body"></p-calendar>
+        </div>
+
+        <div class="row">
+          <label for="actiefTot">Datum Actief Tot</label>
+          <p-calendar [(ngModel)]="model.actiefTot" [readonlyInput]="true" dateFormat="yy-mm-dd" dataType="string" [showIcon]="true" appendTo="body"></p-calendar>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

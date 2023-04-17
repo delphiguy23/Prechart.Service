@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WerkgeverCollectiveComponent should render the Werkgever Collective page correctly 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="div-center p-2"
+  >
+    <h3>
+      Werkgever - Collectieve
+    </h3>
+    <p-dropdown
+      class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+      optionlabel="label"
+      placeholder="Selecteer een werkgever"
+      styleclass="m-2"
+    >
+      <div
+        class="m-2 p-dropdown p-component"
+      >
+        <div
+          class="p-hidden-accessible"
+        >
+          <input
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            placeholder="Selecteer een werkgever"
+            readonly=""
+            role="combobox"
+            type="text"
+          />
+        </div>
+        
+        <span
+          class="p-dropdown-label p-inputtext p-placeholder"
+        >
+          Selecteer een werkgever
+        </span>
+        
+        
+        
+        <div
+          aria-haspopup="listbox"
+          aria-label="dropdown trigger"
+          class="p-dropdown-trigger"
+          role="button"
+        >
+          <span
+            class="p-dropdown-trigger-icon pi pi-chevron-down"
+          />
+        </div>
+        
+      </div>
+    </p-dropdown>
+    <p-panel
+      class="p-element m-1 text-left"
+      header="Werkgevergegevens"
+    >
+      <div
+        class="p-panel p-component"
+        id="p-panel-2"
+      >
+        <div
+          class="p-panel-header"
+          id="p-panel-2-titlebar"
+        >
+          <span
+            class="p-panel-title"
+            id="p-panel-2_header"
+          >
+            Werkgevergegevens
+          </span>
+          
+          
+          <div
+            class="p-panel-icons p-panel-icons-end"
+            role="tablist"
+          >
+            
+            
+          </div>
+        </div>
+        
+        <div
+          aria-hidden="false"
+          aria-labelledby="p-panel-2-titlebar"
+          class="p-toggleable-content ng-trigger ng-trigger-panelContent"
+          id="p-panel-2-content"
+          role="region"
+          style=""
+        >
+          <div
+            class="p-panel-content"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Naam
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Sector
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Fiscaalnummer
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Klantnaam
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Loonheffingen Extentie
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Omzetbelasting Extentie
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Datum Actief Vanaf
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-6"
+                  >
+                    <strong>
+                      Datum Actief Tot
+                    </strong>
+                  </div>
+                  <div
+                    class="col-3"
+                  >
+                    <span>
+                      
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="text-right"
+            >
+              
+            </div>
+            
+          </div>
+          
+        </div>
+      </div>
+    </p-panel>
+    <p-panel
+      class="p-element m-1 text-left"
+      header="Collectieve Aangifte"
+    >
+      <div
+        class="p-panel p-component"
+        id="p-panel-3"
+      >
+        <div
+          class="p-panel-header"
+          id="p-panel-3-titlebar"
+        >
+          <span
+            class="p-panel-title"
+            id="p-panel-3_header"
+          >
+            Collectieve Aangifte
+          </span>
+          
+          
+          <div
+            class="p-panel-icons p-panel-icons-end"
+            role="tablist"
+          >
+            
+            
+          </div>
+        </div>
+        
+        <div
+          aria-hidden="false"
+          aria-labelledby="p-panel-3-titlebar"
+          class="p-toggleable-content ng-trigger ng-trigger-panelContent"
+          id="p-panel-3-content"
+          role="region"
+          style=""
+        >
+          <div
+            class="p-panel-content"
+          >
+            <p-accordion
+              class="p-element"
+            >
+              <div
+                class="p-accordion p-component"
+                role="tablist"
+              >
+                
+              </div>
+            </p-accordion>
+            
+          </div>
+          
+        </div>
+      </div>
+    </p-panel>
+  </div>
+</div>
+`;

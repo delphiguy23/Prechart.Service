@@ -1,0 +1,15 @@
+<div class="div-center p-2">
+  <p-card header="Prechart - DTR Monitoring System" subheader="Employee Information" [style]="{width: '30em', margin: 'auto', 'text-align': 'center'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <p>Juan dela Cruz</p>
+    <p>Manager</p>
+    <p-inputNumber [(ngModel)]="employeeId"></p-inputNumber>
+    <ng-template pTemplate="footer">
+      <p-button label="Log IN" [style]="{'margin-top': '.5em', 'width': '100%'}" (onClick)="save(1)"></p-button>
+      <p-button label="Lunch Break OUT" styleClass="p-button-secondary" [style]="{'margin-top': '.5em', 'width': '100%'}" (onClick)="save(2)"></p-button>
+      <p-button label="Lunch Break IN" styleClass="p-button-secondary" [style]="{'margin-top': '.5em', 'width': '100%'}" (onClick)="save(3)"></p-button>
+      <p-button label="Log OUT" [style]="{'margin-top': '.5em', 'width': '100%'}" (onClick)="save(4)"></p-button>
+    </ng-template>
+  </p-card>
+</div>

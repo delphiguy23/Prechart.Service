@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BelastingenUploadComponent should have the Upload field 1`] = `
+<div
+  id="root2"
+>
+  <div
+    class="div-center p-2"
+  >
+    <h3>
+      Uploaden CSV
+    </h3>
+    <p-fileupload
+      accept=".csv"
+      class="p-element"
+      name="fileUpload[]"
+    >
+      <div
+        class="p-fileupload p-fileupload-advanced p-component"
+      >
+        <div
+          class="p-fileupload-buttonbar"
+        >
+          <span
+            class="p-ripple p-element p-button p-component p-fileupload-choose"
+            pripple=""
+            tabindex="0"
+          >
+            <input
+              accept=".csv"
+              multiple=""
+              title=""
+              type="file"
+            />
+            <span
+              class="pi pi-plus p-button-icon p-button-icon-left"
+            />
+            <span
+              class="p-button-label"
+            >
+              Choose
+            </span>
+          </span>
+          <p-button
+            class="p-element"
+            type="button"
+          >
+            <button
+              class="p-ripple p-element p-button p-component p-disabled"
+              disabled=""
+              pripple=""
+              type="button"
+            >
+              
+              <span
+                aria-hidden="true"
+                class="pi pi-upload p-button-icon p-button-icon-left"
+              />
+              
+              <span
+                aria-hidden="false"
+                class="p-button-label"
+              >
+                Upload
+              </span>
+              
+              
+            </button>
+          </p-button>
+          
+          <p-button
+            class="p-element"
+            type="button"
+          >
+            <button
+              class="p-ripple p-element p-button p-component p-disabled"
+              disabled=""
+              pripple=""
+              type="button"
+            >
+              
+              <span
+                aria-hidden="true"
+                class="pi pi-times p-button-icon p-button-icon-left"
+              />
+              
+              <span
+                aria-hidden="false"
+                class="p-button-label"
+              >
+                Cancel
+              </span>
+              
+              
+            </button>
+          </p-button>
+          
+          
+          
+        </div>
+        <div
+          class="p-fileupload-content"
+        >
+          
+          <p-messages
+            class="p-element"
+          >
+            <div
+              class="p-messages p-component"
+              role="alert"
+            >
+              
+              
+              
+              
+            </div>
+          </p-messages>
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </p-fileupload>
+    <p-toast
+      class="p-element"
+      key="tr"
+      position="top-right"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        
+      </div>
+    </p-toast>
+  </div>
+</div>
+`;
+
+exports[`BelastingenUploadComponent should render the Upload page correctly 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="div-center p-2"
+  >
+    <h3>
+      Uploaden CSV
+    </h3>
+    <p-fileupload
+      accept=".csv"
+      class="p-element"
+      name="fileUpload[]"
+    >
+      <div
+        class="p-fileupload p-fileupload-advanced p-component"
+      >
+        <div
+          class="p-fileupload-buttonbar"
+        >
+          <span
+            class="p-ripple p-element p-button p-component p-fileupload-choose"
+            pripple=""
+            tabindex="0"
+          >
+            <input
+              accept=".csv"
+              multiple=""
+              title=""
+              type="file"
+            />
+            <span
+              class="pi pi-plus p-button-icon p-button-icon-left"
+            />
+            <span
+              class="p-button-label"
+            >
+              Choose
+            </span>
+          </span>
+          <p-button
+            class="p-element"
+            type="button"
+          >
+            <button
+              class="p-ripple p-element p-button p-component p-disabled"
+              disabled=""
+              pripple=""
+              type="button"
+            >
+              
+              <span
+                aria-hidden="true"
+                class="pi pi-upload p-button-icon p-button-icon-left"
+              />
+              
+              <span
+                aria-hidden="false"
+                class="p-button-label"
+              >
+                Upload
+              </span>
+              
+              
+            </button>
+          </p-button>
+          
+          <p-button
+            class="p-element"
+            type="button"
+          >
+            <button
+              class="p-ripple p-element p-button p-component p-disabled"
+              disabled=""
+              pripple=""
+              type="button"
+            >
+              
+              <span
+                aria-hidden="true"
+                class="pi pi-times p-button-icon p-button-icon-left"
+              />
+              
+              <span
+                aria-hidden="false"
+                class="p-button-label"
+              >
+                Cancel
+              </span>
+              
+              
+            </button>
+          </p-button>
+          
+          
+          
+        </div>
+        <div
+          class="p-fileupload-content"
+        >
+          
+          <p-messages
+            class="p-element"
+          >
+            <div
+              class="p-messages p-component"
+              role="alert"
+            >
+              
+              
+              
+              
+            </div>
+          </p-messages>
+          
+          
+          
+        </div>
+      </div>
+      
+      
+    </p-fileupload>
+    <p-toast
+      class="p-element"
+      key="tr"
+      position="top-right"
+    >
+      <div
+        class="p-toast p-component p-toast-top-right"
+      >
+        
+      </div>
+    </p-toast>
+  </div>
+</div>
+`;

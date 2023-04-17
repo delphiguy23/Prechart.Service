@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.9"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.2.3"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3"/>
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.2.3"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+
+
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Prechart.Service.Belastingen\Prechart.Service.Belastingen.csproj"/>
+        <ProjectReference Include="..\Prechart.Service.Core.TestBase\Prechart.Service.Core.TestBase.csproj"/>
+        <ProjectReference Include="..\Prechart.Service.Core\Prechart.Service.Core.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Service\PremiePercentagesSocialeVerzekeringen\"/>
+    </ItemGroup>
+
+</Project>

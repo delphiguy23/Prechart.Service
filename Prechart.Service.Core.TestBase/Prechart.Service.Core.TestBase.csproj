@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>true</IsPackable>
+        <PackageId>Prechart.Test</PackageId>
+        <Authors>Prechart</Authors>
+        <Company>Prechart</Company>
+        <Product>Prechart Test</Product>
+        <Description>Core functionality for Prechart unittests</Description>
+        <Copyright>Prechart</Copyright>
+        <Version>0.0.0</Version>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="FluentAssertions" Version="5.10.3"/>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0"/>
+        <PackageReference Include="MongoDB.Driver" Version="2.18.0"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+        <PackageReference Include="NSubstitute" Version="4.3.0"/>
+        <PackageReference Include="xunit" Version="2.4.1"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="obj\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Remove="obj\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove="obj\**"/>
+    </ItemGroup>
+</Project>

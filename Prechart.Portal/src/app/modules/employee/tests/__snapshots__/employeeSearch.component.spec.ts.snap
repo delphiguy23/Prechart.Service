@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmployeeSearchComponent should render the Employee Search page correctly 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="div-center p-2"
+  >
+    <h3>
+      Onboarding Werknemers
+    </h3>
+    <p-dropdown
+      class="p-element p-inputwrapper ng-untouched ng-pristine ng-valid"
+      optionlabel="label"
+      placeholder="Selecteer een werkgever"
+    >
+      <div
+        class="p-dropdown p-component"
+      >
+        <div
+          class="p-hidden-accessible"
+        >
+          <input
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            placeholder="Selecteer een werkgever"
+            readonly=""
+            role="combobox"
+            type="text"
+          />
+        </div>
+        
+        <span
+          class="p-dropdown-label p-inputtext p-placeholder"
+        >
+          Selecteer een werkgever
+        </span>
+        
+        
+        
+        <div
+          aria-haspopup="listbox"
+          aria-label="dropdown trigger"
+          class="p-dropdown-trigger"
+          role="button"
+        >
+          <span
+            class="p-dropdown-trigger-icon pi pi-chevron-down"
+          />
+        </div>
+        
+      </div>
+    </p-dropdown>
+    
+    
+    
+    
+  </div>
+  <p-sidebar
+    class="p-element"
+    position="right"
+    styleclass="p-sidebar-md"
+  >
+    
+  </p-sidebar>
+</div>
+`;

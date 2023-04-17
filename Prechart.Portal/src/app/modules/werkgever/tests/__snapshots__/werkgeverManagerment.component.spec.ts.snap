@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WerkgeverManagementComponent should render the Werkgever Management page correctly 1`] = `
+<div
+  id="root1"
+>
+  <div
+    class="div-center p-2"
+  >
+    <h3>
+      Werkgever
+    </h3>
+    
+    <p-dialog
+      header="Werkgever wijzigen"
+      style="width: 700px;"
+      styleclass="p-fluid"
+    >
+      
+      
+    </p-dialog>
+    <p-dialog
+      header="WHK Premie wijzigen"
+      style="width: 700px;"
+      styleclass="p-fluid"
+    >
+      
+      
+    </p-dialog>
+    <p-confirmdialog
+      style="width: 600px;"
+    />
+    <p-toast
+      key="tr"
+      position="top-right"
+    />
+  </div>
+</div>
+`;

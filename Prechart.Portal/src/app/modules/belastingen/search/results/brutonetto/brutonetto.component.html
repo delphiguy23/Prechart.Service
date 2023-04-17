@@ -1,0 +1,120 @@
+<p-panel header="Resultaat Bruto Netto" *ngIf="taxRecordResult">
+  <div class="row">
+
+    <div class="col">
+      <!--start left column-->
+      <div class="row">
+        <div class="col-6">
+          <strong>Inkomen Wit</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? inkomenWit.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Inkomen Groen</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? inkomenGroen.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Basis Dagen</strong>
+        </div>
+        <div class="col-3">
+          <span>{{taxRecordResult ? basisDagen : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Loontijdvak</strong>
+        </div>
+        <div class="col-3">
+          <span>{{taxRecordResult ? loontijdvakDescription : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Woonlandbeginsel</strong>
+        </div>
+        <div class="col-3">
+          <span>{{taxRecordResult ? taxRecordResult.woonlandbeginselNaam : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Inhoudingstype</strong>
+        </div>
+        <div class="col-3">
+          <span>{{taxRecordResult ? inhoudingTypeDescription : '' }}</span>
+        </div>
+      </div>
+
+    </div> <!--end left column-->
+
+    <div class="col">
+      <!--start right column-->
+      <div class="row">
+        <div class="col-6">
+          <strong>Algemene Heffingskorting Indicator</strong>
+        </div>
+        <div class="col-3">
+          <span>{{taxRecordResult ? ahkIndicatorDescription : '' }}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <strong>Inhouding Wit</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? taxRecordResult.inhoudingWit.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Inhouding Groen</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? taxRecordResult.inhoudingGroen.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Algemene Heffingskorting</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? taxRecordResult.algemeneHeffingsKorting.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Verrekende Arbeidskorting</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? taxRecordResult.arbeidsKorting.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <strong>Netto Betaling</strong>
+        </div>
+        <div class="col-3">
+          <span>&euro; {{taxRecordResult ? taxRecordResult.nettoBetaling.toLocaleString("es-ES", {minimumFractionDigits: 2}) : '' }}</span>
+        </div>
+      </div>
+
+    </div><!--end right column-->
+
+  </div>
+</p-panel>

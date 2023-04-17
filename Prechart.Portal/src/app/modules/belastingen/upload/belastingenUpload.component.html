@@ -1,0 +1,60 @@
+<div class="div-center p-2">
+  <h3>Uploaden CSV</h3>
+  <p-fileUpload #formUpload name="fileUpload[]"
+                [customUpload]="true"
+                (uploadHandler)="uploadFile($event, formUpload)"
+                (onSelect)="onSelectUpload()"
+                [multiple]="true"
+                accept=".csv"
+                [showUploadButton]="showButton"
+                [showCancelButton]="showButton">
+
+    <ng-template pTemplate="toolbar">
+      <div *ngIf="progressVisible" class="mt-2">
+        <p-progressBar mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+      </div>
+    </ng-template>
+
+    <ng-template let-file pTemplate="file">
+      <div class="grid">
+        <div class="col-2"></div>
+        <div class="col-5 flex align-items-center justify-content-center">
+          <div class="p-fluid">
+            <span>{{file.name}}</span>
+          </div>
+        </div>
+        <div class="col-2">
+          <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined" (click)="removeFile($event, file, formUpload)" *ngIf="showButton"></button>
+        </div>
+      </div>
+      <p-divider></p-divider>
+    </ng-template>
+
+    <ng-template pTemplate="content">
+      <div *ngIf="uploadedFiles.length">
+        <div *ngFor="let result of uploadedFiles">
+          <div class="grid">
+            <div class="col-2"></div>
+            <div class="col-5 flex align-items-center justify-content-center">
+              <div class="p-fluid">
+                <span>{{result.filename}}</span>
+              </div>
+            </div>
+            <div class="col-2">
+              <div *ngIf="result.isProcessed; else tmplNotProcessed">
+                <button pButton pRipple type="button" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+              </div>
+
+              <ng-template #tmplNotProcessed>
+                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-outlined"></button>
+              </ng-template>
+            </div>
+          </div>
+          <p-divider></p-divider>
+        </div>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+  
+  <p-toast position="top-right" key="tr"></p-toast>
+</div>
